@@ -44,21 +44,6 @@
 /* Define if you have the ANSI C header files.  */
 #define STDC_HEADERS 1
 
-/* Define to 1 if NLS is requested.  */
-#define ENABLE_NLS 1
-
-/* Define as 1 if you have catgets and don't want to use GNU gettext.  */
-/* #undef HAVE_CATGETS */
-
-/* Define as 1 if you have gettext and don't want to use GNU gettext.  */
-#define HAVE_GETTEXT 1
-
-/* Define as 1 if you have the stpcpy function.  */
-#define HAVE_STPCPY 1
-
-/* Define if your locale.h file contains LC_MESSAGES.  */
-#define HAVE_LC_MESSAGES 1
-
 /* Define if you have the __argz_count function.  */
 #define HAVE___ARGZ_COUNT 1
 
@@ -113,8 +98,14 @@
 /* Define if you have the <nl_types.h> header file.  */
 #define HAVE_NL_TYPES_H 1
 
+/* Define if you have the <stdlib.h> header file.  */
+#define HAVE_STDLIB_H 1
+
 /* Define if you have the <string.h> header file.  */
 #define HAVE_STRING_H 1
+
+/* Define if you have the <strings.h> header file.  */
+#define HAVE_STRINGS_H 1
 
 /* Define if you have the <sys/param.h> header file.  */
 #define HAVE_SYS_PARAM_H 1
@@ -125,5 +116,21 @@
 /* Define if you have the <values.h> header file.  */
 #define HAVE_VALUES_H 1
 
-/* Define if you have the i library (-li).  */
-/* #undef HAVE_LIBI */
+/* Name of package */
+#define PACKAGE "opcodes"
+
+/* Version number of package */
+#define VERSION "2.11.2"
+
+/* Define if you have the stpcpy function */
+#define HAVE_STPCPY 1
+
+/* Define if your locale.h file contains LC_MESSAGES. */
+#define HAVE_LC_MESSAGES 1
+
+/* Define to 1 if NLS is requested */
+#define ENABLE_NLS 1
+
+/* Define as 1 if you have gettext and don't want to use GNU gettext. */
+#define HAVE_GETTEXT 1
+

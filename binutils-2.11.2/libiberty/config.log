@@ -1,0 +1,99 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:591: checking host system type
+configure:614: checking build system type
+configure:640: checking for ar
+configure:672: checking for ranlib
+configure:741: checking for gcc
+configure:820: checking whether we are using GNU C
+configure:845: checking whether gcc accepts -g
+configure:876: checking for POSIXized ISC
+configure:897: checking for working const
+configure:972: checking for inline
+configure:1029: checking for a BSD compatible install
+configure:1090: checking how to run the C preprocessor
+configure:1173: checking for sys/file.h
+configure:1173: checking for sys/param.h
+configure:1173: checking for limits.h
+configure:1173: checking for stdlib.h
+configure:1173: checking for string.h
+configure:1173: checking for unistd.h
+configure:1173: checking for strings.h
+configure:1173: checking for sys/time.h
+configure:1173: checking for time.h
+configure:1173: checking for sys/resource.h
+configure:1173: checking for sys/stat.h
+configure:1173: checking for sys/mman.h
+configure:1173: checking for fcntl.h
+configure:1210: checking for sys/wait.h that is POSIX.1 compatible
+configure:1252: checking whether time.h and sys/time.h may both be included
+configure:1288: checking whether errno must be declared
+configure:1921: checking whether the C compiler (gcc -g -O2 -Wl,--allow-multiple-definition) works
+configure:1937: gcc -o conftest -g -O2  -Wl,--allow-multiple-definition conftest.c  1>&5
+configure:1934:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ 1934 | main(){return(0);}
+      | ^~~~
+configure:1963: checking whether the C compiler (gcc -g -O2 -Wl,--allow-multiple-definition) is a cross-compiler
+configure:1970: checking for asprintf
+configure:1970: checking for atexit
+configure:1970: checking for basename
+configure:1970: checking for bcmp
+configure:1970: checking for bcopy
+configure:1970: checking for bsearch
+configure:1970: checking for bzero
+configure:1970: checking for calloc
+configure:1970: checking for clock
+configure:1970: checking for getcwd
+configure:1970: checking for getpagesize
+configure:1970: checking for index
+configure:1970: checking for insque
+configure:1970: checking for memchr
+configure:1970: checking for memcmp
+configure:1970: checking for memcpy
+configure:1970: checking for memmove
+configure:1970: checking for memset
+configure:1970: checking for mkstemps
+configure:1970: checking for putenv
+configure:1970: checking for random
+configure:1970: checking for rename
+configure:1970: checking for rindex
+configure:1970: checking for setenv
+configure:1970: checking for sigsetmask
+configure:1970: checking for strcasecmp
+configure:1970: checking for strchr
+configure:1970: checking for strdup
+configure:1970: checking for strncasecmp
+configure:1970: checking for strrchr
+configure:1970: checking for strstr
+configure:1970: checking for strtod
+configure:1970: checking for strtol
+configure:1970: checking for strtoul
+configure:1970: checking for tmpnam
+configure:1970: checking for vasprintf
+configure:1970: checking for vfprintf
+configure:1970: checking for vprintf
+configure:1970: checking for vsprintf
+configure:1970: checking for waitpid
+configure:2045: checking for working alloca.h
+configure:2078: checking for alloca
+configure:2280: checking for ANSI C header files
+configure:2384: checking for pid_t
+configure:2418: checking for vfork.h
+configure:2453: checking for working vfork
+configure:2631: checking for sys_errlist
+configure:2631: checking for sys_nerr
+configure:2631: checking for sys_siglist
+configure:2669: checking for getrusage
+configure:2669: checking for on_exit
+configure:2669: checking for psignal
+configure:2669: checking for strerror
+configure:2669: checking for strsignal
+configure:2669: checking for sysconf
+configure:2669: checking for times
+configure:2669: checking for sbrk
+configure:2669: checking for gettimeofday
+configure:2727: checking for unistd.h
+configure:2766: checking for getpagesize
+configure:2819: checking for working mmap
+configure:2991: checking for working strncmp

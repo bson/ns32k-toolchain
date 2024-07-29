@@ -20,6 +20,9 @@
 /* Define if you have a working `mmap' system call.  */
 #define HAVE_MMAP 1
 
+/* Define if you have <sys/wait.h> that is POSIX.1 compatible.  */
+#define HAVE_SYS_WAIT_H 1
+
 /* Define as __inline if that's what the C compiler calls it.  */
 /* #undef inline */
 
@@ -44,20 +47,8 @@
 /* Define if you have the ANSI C header files.  */
 #define STDC_HEADERS 1
 
-/* Define to 1 if NLS is requested.  */
-#define ENABLE_NLS 1
-
-/* Define as 1 if you have catgets and don't want to use GNU gettext.  */
-/* #undef HAVE_CATGETS */
-
-/* Define as 1 if you have gettext and don't want to use GNU gettext.  */
-#define HAVE_GETTEXT 1
-
-/* Define as 1 if you have the stpcpy function.  */
-#define HAVE_STPCPY 1
-
-/* Define if your locale.h file contains LC_MESSAGES.  */
-#define HAVE_LC_MESSAGES 1
+/* Define if lex declares yytext as a char * by default, not a char[].  */
+/* #undef YYTEXT_POINTER */
 
 /* Define if you have the __argz_count function.  */
 #define HAVE___ARGZ_COUNT 1
@@ -83,11 +74,17 @@
 /* Define if you have the putenv function.  */
 #define HAVE_PUTENV 1
 
+/* Define if you have the sbrk function.  */
+#define HAVE_SBRK 1
+
 /* Define if you have the setenv function.  */
 #define HAVE_SETENV 1
 
 /* Define if you have the setlocale function.  */
 #define HAVE_SETLOCALE 1
+
+/* Define if you have the setmode function.  */
+/* #undef HAVE_SETMODE */
 
 /* Define if you have the stpcpy function.  */
 #define HAVE_STPCPY 1
@@ -98,8 +95,14 @@
 /* Define if you have the strchr function.  */
 #define HAVE_STRCHR 1
 
+/* Define if you have the utimes function.  */
+#define HAVE_UTIMES 1
+
 /* Define if you have the <argz.h> header file.  */
 #define HAVE_ARGZ_H 1
+
+/* Define if you have the <fcntl.h> header file.  */
+#define HAVE_FCNTL_H 1
 
 /* Define if you have the <limits.h> header file.  */
 #define HAVE_LIMITS_H 1
@@ -113,8 +116,17 @@
 /* Define if you have the <nl_types.h> header file.  */
 #define HAVE_NL_TYPES_H 1
 
+/* Define if you have the <stdlib.h> header file.  */
+#define HAVE_STDLIB_H 1
+
 /* Define if you have the <string.h> header file.  */
 #define HAVE_STRING_H 1
+
+/* Define if you have the <strings.h> header file.  */
+#define HAVE_STRINGS_H 1
+
+/* Define if you have the <sys/file.h> header file.  */
+#define HAVE_SYS_FILE_H 1
 
 /* Define if you have the <sys/param.h> header file.  */
 #define HAVE_SYS_PARAM_H 1
@@ -125,5 +137,57 @@
 /* Define if you have the <values.h> header file.  */
 #define HAVE_VALUES_H 1
 
-/* Define if you have the i library (-li).  */
-/* #undef HAVE_LIBI */
+/* Name of package */
+#define PACKAGE "binutils"
+
+/* Version number of package */
+#define VERSION "2.11.2"
+
+/* Define if you have the stpcpy function */
+#define HAVE_STPCPY 1
+
+/* Define if your locale.h file contains LC_MESSAGES. */
+#define HAVE_LC_MESSAGES 1
+
+/* Define to 1 if NLS is requested */
+#define ENABLE_NLS 1
+
+/* Define as 1 if you have gettext and don't want to use GNU gettext. */
+#define HAVE_GETTEXT 1
+
+/* Does the platform use an executable suffix? */
+/* #undef HAVE_EXECUTABLE_SUFFIX */
+
+/* Suffix used for executables, if any. */
+#define EXECUTABLE_SUFFIX ""
+
+/* Is the type time_t defined in <time.h>? */
+#define HAVE_TIME_T_IN_TIME_H 1
+
+/* Is the type time_t defined in <sys/types.h>? */
+#define HAVE_TIME_T_IN_TYPES_H 1
+
+/* Does <utime.h> define struct utimbuf? */
+#define HAVE_GOOD_UTIME_H 1
+
+/* Define if fprintf is not declared in system header files. */
+/* #undef NEED_DECLARATION_FPRINTF */
+
+/* Define if strstr is not declared in system header files. */
+/* #undef NEED_DECLARATION_STRSTR */
+
+/* Define if sbrk is not declared in system header files. */
+/* #undef NEED_DECLARATION_SBRK */
+
+/* Define if getenv is not declared in system header files. */
+/* #undef NEED_DECLARATION_GETENV */
+
+/* Define if environ is not declared in system header files. */
+#define NEED_DECLARATION_ENVIRON 1
+
+/* Use b modifier when opening binary files? */
+/* #undef USE_BINARY_FOPEN */
+
+/* Configured target name. */
+#define TARGET "ns32k-toy-netbsd"
+

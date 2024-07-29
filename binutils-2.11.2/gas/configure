@@ -2521,6 +2521,7 @@ EOF
 
       ns32k-pc532-mach* | ns32k-pc532-ux*)    fmt=aout em=pc532mach ;;
       ns32k-pc532-netbsd* | ns32k-pc532-lites*)  fmt=aout em=nbsd532 ;;
+      ns32k-toy-netbsd | ns32k-toy-netbsd*) fmt=aout em=nbsdtoy ;;
       ns32k-pc532-openbsd*) fmt=aout em=nbsd532 ;;
 
       sparc-*-rtemsaout*)   fmt=aout ;;
