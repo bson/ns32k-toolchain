@@ -1,5 +1,0 @@
-#!/bin/sh
-# This file was generated automatically by configure.  Do not edit.
-# This directory was configured as follows:
-./configure --prefix=/opt/ns32k --target=ns32k-toy-netbsd --enable-languages=c --host=x86_64-linux-gnu --build=x86_64-linux-gnu --norecursion 
-# 
