@@ -823,7 +823,7 @@ Makefile: $(srcdir)/Makefile.in config.status $(srcdir)/version.c \
    $(xmake_file) $(tmake_file) $(LANG_MAKEFILES)
 	$(SHELL) $(srcdir)/configure.frag $(srcdir) "$(SUBDIRS)" \
 		"$(xmake_file)" "$(tmake_file)"
-	cp config.status config.run
+	install config.status config.run
 	LANGUAGES="$(CONFIG_LANGUAGES)" $(SHELL) config.run
 	rm -f config.run
 
@@ -959,7 +959,7 @@ specs: xgcc$(exeext)
 # compile libgcc2.a.
 # Also create gcc-cross, so that install-common will install properly.
 gcc-cross: xgcc$(exeext)
-	cp xgcc$(exeext) gcc-cross$(exeext)
+	install xgcc$(exeext) gcc-cross$(exeext)
 
 cc1$(exeext): $(C_OBJS) $(BACKEND) $(LIBDEPS)
 	$(CC) $(ALL_CFLAGS) $(LDFLAGS) -o cc1$(exeext) \
@@ -2060,7 +2060,7 @@ SYSCALLS.c.X: $(srcdir)/sys-types.h $(srcdir)/sys-protos.h $(GCC_PASSES) \
 
 test-protoize-simple: ./protoize ./unprotoize $(GCC_PASSES)
 	-rm -f tmp-proto.[cso]
-	cp $(srcdir)/protoize.c tmp-proto.c
+	install $(srcdir)/protoize.c tmp-proto.c
 	chmod u+w tmp-proto.c
 	./protoize -N -B ./ -x getopt.h -c "-B./ -Wall -Wwrite-strings \
 	  $(GCC_CFLAGS) $(INCLUDES) \
@@ -2113,21 +2113,21 @@ stmp-int-hdrs: $(STMP_FIXINC) $(USER_H) xlimits.h
 	    realfile=`echo $$file | sed -e 's|.*/\([^/]*\)$$|\1|'`; \
 	    $(STAMP) include/$$realfile; \
 	    rm -f include/$$realfile; \
-	    cp $$file include; \
+	    install $$file include; \
 	    chmod a+r include/$$realfile; \
 	  fi; \
 	done
 	rm -f include/limits.h
-	cp xlimits.h include/limits.h
+	install xlimits.h include/limits.h
 	chmod a+r include/limits.h
 	rm -f include/float.h
 	if [ x$(FLOAT_H) != xMakefile.in ]; then \
-	  cp $(srcdir)/config/$(FLOAT_H) include/float.h && \
+	  install $(srcdir)/config/$(FLOAT_H) include/float.h && \
 	  chmod a+r include/float.h; \
 	else :; fi
 # Install the README
 	rm -f include/README
-	cp $(srcdir)/README-fixinc include/README
+	install $(srcdir)/README-fixinc include/README
 	chmod a+r include/README
 	$(STAMP) $@
 
@@ -2164,7 +2164,7 @@ stmp-fixinc: fixinc.sh gsyslimits.h
 	if [ -f include/limits.h ]; then \
 	  mv include/limits.h include/syslimits.h; \
 	else \
-	  cp $(srcdir)/gsyslimits.h include/syslimits.h; \
+	  install $(srcdir)/gsyslimits.h include/syslimits.h; \
 	fi; \
 	chmod a+r include/syslimits.h)
 # If $(SYSTEM_HEADER_DIR) is $(build_tooldir)/sys-include, and
