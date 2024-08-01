@@ -15,6 +15,9 @@ can't be used to create NetBSD executable as-is; it lacks any crt
 standalone flashable executables or other binary files.  It can be best
 thought of as 'ns32k-aout-none'.
 
+As the target suggests, it defaults to the NS32532. For the NS32032 or
+NS32016 
+
 Included are:
 
 * binutils-2.13
@@ -29,8 +32,24 @@ Included are:
   scripts and it'll probably Just Work.  (Famous last words, right?)
 
 * gdb-5.3
-  Requires libncurses-dev to be installed on Linux, and ncurses for other platforms.
+  Requires libncurses-dev to be installed on Linux, and ncurses for other
+  platforms, presumably for readline.
   Note that this is ONLY the debugger, the target still needs a gdbserver
-  implementation.
+  implementation.  gdbserver is inherently more limited than a modern JTAG
+  debug interface in that there is no real way to halt a running processor,
+  and on the 32016/032 there is no hardware address comparator.  A board
+  could be set to stop what it's doing and start servicing a gdb client on
+  NMI, which could be tied to a button.  This way if the system wedges a
+  button can be pressed and gdb used to see where it was stuck.  It might
+  also be possible to hack something up where the RXRDY on the UART is
+  hooked up to the CPU NMI with a switch, so when the switch is closed
+  whenever the UART goes from empty to non-empty the CPU hits the NMI handler
+  and all UART traffic is routed through the gdbserver if it's active...
+  Slow, but what ya gonna do?
 
 See the file BUILD for instructions.
+
+I created this somewhat minimal toolchain for the purpose of porting U-Boot
+to a small NS32016 Toy board.  (It has the 32082 MMU, 512k x 16 NOR flash,
+4M x 16 SRAM, 1G NAND flash, a 16C550 UART with a CP2102N VCP USB interface,
+and a KSZ8851-16MLL 10/100 ethernet controller.)
