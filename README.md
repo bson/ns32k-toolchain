@@ -57,7 +57,8 @@ Included are:
   address matches, separating I and D cycles using the STx pins.  This could
   also implement a JTAG interface, permitting in-circuit programming of the
   NOR flash and NAND using something like OpenOCD.  Then add ns32k support to
-  OpenOCD.
+  OpenOCD.  This in turn would permit replacing the huge (and painful to
+  route) PLCC-32 sockets in favor of one or two SMT TSOPs.
 
 See the file BUILD for instructions.
 
