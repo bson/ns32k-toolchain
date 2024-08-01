@@ -1,7 +1,9 @@
 # NS32000 Toolchain
 This repo contains tools for NS32k cross-development.
 
-They build and install on Ubuntu 22.04.1 LTS, x86_64
+They build and install on Ubuntu 22.04.1 LTS, x86_64.
+I'd imagine they should be okay, mostly, on Darwin (arm64/x86_64)
+as well.
 
 Some small changes have been made for them to compile with a current
 version of gcc, so no need to install (most likely build) a very old
