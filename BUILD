@@ -1,5 +1,7 @@
 Replace x86_64-linux-gnu with whatever your host & build platform is below.
 
+gdb requires libncurses-dev to be installed (for readline, presumably)
+
 cd binutils-2.13
 LDFLAGS="-Wl,--allow-multiple-definition" ./configure --prefix=/opt/ns32k-tools --target=ns32k-pc532-netbsd --enable-languages=c --host=x86_64-linux-gnu --build=x86_64-linux-gnu
 make CFLAGS="-D_FORTIFY_SOURCE=1 --no-warnings -Wl,--allow-multiple-definition"
