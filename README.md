@@ -1,4 +1,4 @@
-# ns32k-toolchain
+# NS32000 Toolchain
 This repo contains tools for NS32k cross-development.
 
 They build and install on Ubuntu 22.04.1 LTS, x86_64
@@ -8,6 +8,12 @@ version of gcc, so no need to install (most likely build) a very old
 version of gcc just for this. Because newer compilers produce a lot
 (and I mean, A LOT) of warnings for these codebases, I suggest
 suppressing all warnings.  This way you can find any errors.
+
+The build creates a target 'ns32k-pc532-netbsd'.  Despite the name it
+can't be used to create NetBSD executable as-is; it lacks any crt
+(executable startup) .o files, so is immediately most useful to create
+standalone flashable executables or other binary files.  It can be best
+thought of as 'ns32k-aout-none'.
 
 Included are:
 
@@ -24,5 +30,7 @@ Included are:
 
 * gdb-5.3
   Requires libncurses-dev to be installed on Linux, and ncurses for other platforms.
+  Note that this is ONLY the debugger, the target still needs a gdbserver
+  implementation.
 
 See the file BUILD for instructions.
