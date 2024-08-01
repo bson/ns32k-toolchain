@@ -52,6 +52,12 @@ Included are:
   whenever the UART goes from empty to non-empty the CPU hits the NMI handler
   and all UART traffic is routed through the gdbserver if it's active...
   Slow, but what ya gonna do?
+  Another idea: with a very small FPGA one or two external logic ICs could
+  be removed, and a bus snooper peripheral added that pulls NMI on logical or physical
+  address matches, separating I and D cycles using the STx pins.  This could
+  also implement a JTAG interface, permitting in-circuit programming of the
+  NOR flash and NAND using something like OpenOCD.  Then add ns32k support to
+  OpenOCD.
 
 See the file BUILD for instructions.
 
