@@ -934,7 +934,6 @@ DO_X = \
 	do-distclean \
 	do-dvi \
 	do-info \
-	do-install-info \
 	do-installcheck \
 	do-mostlyclean \
 	do-maintainer-clean \
@@ -999,12 +998,7 @@ dvi: do-dvi
 # Make sure makeinfo is built before we do a `make info'.
 do-info: all-texinfo
 
-install-info: do-install-info dir.info
-	s=`cd $(srcdir); ${PWD}`; export s; \
-	if [ -f dir.info ] ; then \
-	  $(INSTALL_DATA) dir.info $(infodir)/dir.info ; \
-	else true ; fi
-
+install-info:
 local-clean:
 	-rm -f *.a TEMP errs core *.o *~ \#* TAGS *.E *.log
 
@@ -1766,12 +1760,7 @@ MAKEDIRS= \
 installdirs: mkinstalldirs
 	$(SHELL) $(srcdir)/mkinstalldirs $(MAKEDIRS)
 
-dir.info: do-install-info
-	if [ -f $(srcdir)/texinfo/gen-info-dir ] ; then \
-	  $(srcdir)/texinfo/gen-info-dir $(infodir) $(srcdir)/texinfo/dir.info-template > dir.info.new ; \
-	  mv -f dir.info.new dir.info ; \
-	else true ; \
-	fi
+dir.info:
 
 dist:
 	@echo "Building a full distribution of this tree isn't done"

@@ -1049,7 +1049,7 @@ check: check-recursive
 installcheck-am:
 installcheck: installcheck-recursive
 install-info-am: 
-install-info: install-info-recursive
+install-info:
 all-recursive-am: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

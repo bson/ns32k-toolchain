@@ -52,7 +52,7 @@ DVIFILES = standards.dvi configure.dvi
 all:
 
 # We want install to imply install-info as per GNU standards.
-install: install-info
+install:
 
 uninstall:
 
@@ -67,71 +67,26 @@ info:
 	  fi; \
 	done
 
-install-info: info
-	$(SHELL) $(srcdir)/../mkinstalldirs $(infodir)
-	if test ! -f standards.info; then cd $(srcdir); fi; \
-	if test -f standards.info; then \
-	  for i in standards.info*; do \
-	    $(INSTALL_DATA) $$i $(infodir)/$$i; \
-	  done; \
-	fi
-	if test ! -f configure.info; then cd $(srcdir); fi; \
-	if test -f configure.info; then \
-	  for i in configure.info*; do \
-	    $(INSTALL_DATA) $$i $(infodir)/$$i; \
-	  done; \
-	fi
+install-info:
 
 dvi:
-	for f in $(DVIFILES); do \
-	  if test -f $(srcdir)/`echo $$f | sed -e 's/.dvi$$/.texi/'`; then \
-	    if $(MAKE) "TEXI2DVI=$(TEXI2DVI)" $$f; then \
-	      true; \
-	    else \
-	      exit 1; \
-	    fi; \
-	  fi; \
-	done
 
-standards.info: $(srcdir)/standards.texi $(srcdir)/make-stds.texi
-	$(MAKEINFO) --no-split -I$(srcdir) -o standards.info $(srcdir)/standards.texi
+standards.info:
 
-standards.dvi: $(srcdir)/standards.texi
-	TEXINPUTS=$(TEXIDIR):$$TEXINPUTS $(TEXI2DVI) $(srcdir)/standards.texi
+standards.dvi:
 
-standards.ps: standards.dvi
-	$(DVIPS) standards.dvi -o standards.ps
+standards.ps:
 
 # makeinfo requires images to be in the current directory.
-configure.info: $(srcdir)/configure.texi $(srcdir)/configdev.tin $(srcdir)/configbuild.tin
-	rm -f configdev.txt configbuild.txt
-	cp $(srcdir)/configdev.tin configdev.txt
-	cp $(srcdir)/configbuild.tin configbuild.txt
-	$(MAKEINFO) -I$(srcdir) -o configure.info $(srcdir)/configure.texi
-	rm -f configdev.txt configbuild.txt
+configure.info:
 
 # texi2dvi wants both the .txt and the .eps files.
-configure.dvi: $(srcdir)/configure.texi $(srcdir)/configdev.tin $(srcdir)/configbuild.tin $(srcdir)/configdev.ein $(srcdir)/configbuild.ein
-	rm -f configdev.txt configbuild.txt
-	cp $(srcdir)/configdev.tin configdev.txt
-	cp $(srcdir)/configbuild.tin configbuild.txt
-	rm -f configdev.eps configbuild.eps
-	cp $(srcdir)/configdev.ein configdev.eps
-	cp $(srcdir)/configbuild.ein configbuild.eps
-	TEXINPUTS=$(TEXIDIR):$$TEXINPUTS $(TEXI2DVI) $(srcdir)/configure.texi
-	rm -f configdev.txt configbuild.txt
-	rm -f configdev.eps configbuild.eps
+configure.dvi:
 
 # dvips requires images to be in the current directory
-configure.ps: configure.dvi $(srcdir)/configdev.ein $(srcdir)/configbuild.ein
-	rm -f configdev.eps configbuild.eps
-	cp $(srcdir)/configdev.ein configdev.eps
-	cp $(srcdir)/configbuild.ein configbuild.eps
-	$(DVIPS) configure.dvi -o configure.ps
-	rm -f configdev.eps configbuild.eps
+configure.ps:
 
-configure.html: $(srcdir)/configure.texi
-	$(TEXI2HTML) -split_chapter $(srcdir)/configure.texi
+configure.html:
 
 clean:
 	rm -f *.aux *.cp *.cps *.dvi *.fn *.fns *.ky *.kys *.log

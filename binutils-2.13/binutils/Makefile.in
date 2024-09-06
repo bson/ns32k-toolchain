@@ -663,7 +663,7 @@ rcparse.h: rcparse.c
 @SET_MAKE@
 
 all-recursive install-data-recursive install-exec-recursive \
-installdirs-recursive install-recursive uninstall-recursive install-info-recursive \
+installdirs-recursive install-recursive uninstall-recursive \
 check-recursive installcheck-recursive info-recursive dvi-recursive:
 	@set fnord $(MAKEFLAGS); amf=$$2; \
 	dot_seen=no; \
@@ -835,7 +835,7 @@ check: check-recursive
 installcheck-am:
 installcheck: installcheck-recursive
 install-info-am: 
-install-info: install-info-recursive
+install-info:
 all-recursive-am: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
