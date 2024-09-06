@@ -19,7 +19,7 @@ sudo make -k install
 
 cd gcc-3.2.3
 ./configure --prefix=/opt/ns32k-tools --target=ns32k-pc532-netbsd --enable-languages=c --host=x86_64-linux-gnu --build=x86_64-linux-gnu
-make PATH="/opt/ns32k-tools/bin:$PATH" CFLAGS="--no-warnings M4=/usr/bin/m4 -fno-stack-protector" -j10 all-gcc
+make PATH="/opt/ns32k-tools/bin:$PATH" CFLAGS="--no-warnings -fno-stack-protector" -j10 all-gcc
 sudo make install
 
 cd gdb-5.3
