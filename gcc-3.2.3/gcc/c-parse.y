@@ -60,6 +60,10 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 
 /* Rename the "yyparse" function so that we can override it elsewhere.  */
 #define yyparse yyparse_1
+
+#ifndef YYLEX
+#define YYLEX yylex()
+#endif
 %}
 
 %start program
@@ -1635,7 +1639,7 @@ enum_head:
 
 structsp_attr:
 	  struct_head identifier '{'
-		{ $$ = start_struct (RECORD_TYPE, $2);
+		{ $<ttype>$ = start_struct (RECORD_TYPE, $2);
 		  /* Start scope of tag before parsing components.  */
 		}
 	  component_decl_list '}' maybe_attribute 
@@ -1645,7 +1649,7 @@ structsp_attr:
 				      $3, chainon ($1, $5));
 		}
 	| union_head identifier '{'
-		{ $$ = start_struct (UNION_TYPE, $2); }
+		{ $<ttype>$ = start_struct (UNION_TYPE, $2); }
 	  component_decl_list '}' maybe_attribute
 		{ $$ = finish_struct ($<ttype>4, $5, chainon ($1, $7)); }
 	| union_head '{' component_decl_list '}' maybe_attribute
@@ -1653,12 +1657,12 @@ structsp_attr:
 				      $3, chainon ($1, $5));
 		}
 	| enum_head identifier '{'
-		{ $$ = start_enum ($2); }
+		{ $<ttype>$ = start_enum ($2); }
 	  enumlist maybecomma_warn '}' maybe_attribute
 		{ $$ = finish_enum ($<ttype>4, nreverse ($5),
 				    chainon ($1, $8)); }
 	| enum_head '{'
-		{ $$ = start_enum (NULL_TREE); }
+		{ $<ttype>$ = start_enum (NULL_TREE); }
 	  enumlist maybecomma_warn '}' maybe_attribute
 		{ $$ = finish_enum ($<ttype>3, nreverse ($4),
 				    chainon ($1, $7)); }
