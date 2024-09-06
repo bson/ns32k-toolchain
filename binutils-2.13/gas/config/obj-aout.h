@@ -79,7 +79,10 @@ typedef struct nlist obj_symbol_type;	/* Symbol table entry */
 #define S_GET_DESC(S) \
   (aout_symbol (symbol_get_bfdsym (S))->desc)
 
-asection *text_section, *data_section, *bss_section;
+
+asection *text_section __attribute__((weak));
+asection *data_section __attribute__((weak));
+asection *bss_section __attribute__((weak));
 
 #define obj_frob_symbol(S,PUNT)	obj_aout_frob_symbol (S, &PUNT)
 #define obj_frob_file()		obj_aout_frob_file ()
